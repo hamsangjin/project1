@@ -13,6 +13,10 @@ const home = require("./src/routes/home");
 app.set("views", "./src/views");                // 저장할 경로
 app.set("view engine", "ejs");
 
+// 현재 디렉터리(app.js있는 위치) 안에 있는 src폴더 안에 있는 public폴더를 정적 경로로 추가
+app.use(express.static(`${__dirname}/src/public`));
+
+
 // use : 미들웨어를 등록해주는 메소드
 app.use("/", home);                        // module.exports한 index.js파일을 쓸 수 있게 
 
