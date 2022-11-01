@@ -18,5 +18,12 @@ function login(){
     psword: psword.value
   };
   console.log(req);
+  console.log(JSON.stringify(req));
+
+  // req 정보를 서버로 받아오는 것 
+  fetch("/login", {
+    // JSON.stringify() : 문자열로 바꿔주는 것
+    body: JSON.stringify(req)
+  })
 }
 
