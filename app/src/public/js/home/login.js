@@ -33,7 +33,7 @@ function login(){
     // 다 읽은 body 텍스트를 Promise 형태로 반환한다.
   }).then((res) => res.json())
     .then((res) => {
-      if (res.success){
+      if (res.success){             // 로그인 됐다면 루트로 이동하고 아니면 에러 메시지 ! 
         location.href = "/";
       } else{
         alert(res.msg);
