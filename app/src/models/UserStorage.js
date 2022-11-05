@@ -30,6 +30,14 @@ class UserStorage{
     return userInfo;
   }   
 
+  // 회원가입 버튼 누르면 정보 저장하기
+  static save(userInfo){    
+    const users = this.#users
+    users.id.push(userInfo.id)
+    users.psword.push(userInfo.psword)
+    users.name.push(userInfo.name)
+    return {success: true};
+  }
 }
 
 module.exports = UserStorage;

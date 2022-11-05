@@ -18,10 +18,12 @@ const registerBtn = document.querySelector("#button");
 registerBtn.addEventListener("click", register);
 
 function register(){
+  if (!id.value) return alert("아이디를 입력해주세요.");
+  if (psword.value !== confirmPsword.value) return alert("비밀번호가 일치하지 않습니다.");
+
   const req = {
     id: id.value,
     psword: psword.value,
-    confirmPsword: confirmPsword.value,
     name: name.value,
     birth: birth.value,
     phonenb: phonenb.value,
@@ -29,7 +31,6 @@ function register(){
     
   };
 
-  console.log(req)
 
   // req 정보를 서버로 받아오는 것
   fetch("/register", {
