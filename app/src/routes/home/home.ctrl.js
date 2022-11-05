@@ -10,6 +10,9 @@ const output = {
   login: (req, res) => {             // login 주소 추가    
     res.render("home/login");        // 파일 불러오기
   },
+  register: (req, res) => {
+    res.render("home/register");
+  }
 };
 
 
