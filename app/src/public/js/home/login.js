@@ -8,7 +8,7 @@
 // # : 태그에 id에 부여되어있는 id, psword를 선택해라
 const id = document.querySelector("#id"); 
 const psword = document.querySelector("#psword");
-const loginBtn = document.querySelector("button");
+const loginBtn = document.querySelector("#button");
 
 loginBtn.addEventListener("click", login);
 
