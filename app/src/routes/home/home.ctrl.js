@@ -1,7 +1,7 @@
 "use strict"
 
 const { name } = require("ejs");
-const UserStorage = require("../../models/UserStorage");
+const User = require("../../models/User");
 
 const output = {
   home: (req, res) => {              // 경로 지정, req/res : 요청/응답
@@ -16,23 +16,9 @@ const output = {
 
 const process = {
   login: (req, res) => {
-    const id = req.body.id,
-      psword = req.body.psword;
-
-    const users = UserStorage.getUsers("id", "psword");      // User저장소에 담겨있는 데이터를 가져옴
-
-     const response = {};
-    if (users.id.includes(id)) {              // 로그인 기능 구현한 거임 중요한 부분
-      const idx = users.id.indexOf(id);
-      if (users.psword[idx] === psword){
-        response.success = true;
-        return res.json(response);
-      }
-    }
-
-    response.success = false;
-    response.msg = "로그인에 실패하셨습니다.";
-    return res.json(response); 
+    const user = new User(req.body);    // User라는 클래스를 인스턴스화 할 때 req.body를 넣어 인스턴스화를 함
+    const response = user.login();      // User.js의 login 메소드를 불러와 로그인 시도
+    return res.json(response);          // response을 json객체로 만들어서 클라이언트한테 보냄
   },
 };
 
@@ -41,3 +27,4 @@ module.exports = {
   output,
   process,
 };
+
