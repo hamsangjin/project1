@@ -42,6 +42,6 @@ function login(){
     // 로그인 에러 제거
     .catch((err) => {
       console.error(new Error("로그인 중 에러 발생"));
-    });  
+    });
 }
 

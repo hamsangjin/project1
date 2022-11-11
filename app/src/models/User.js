@@ -7,7 +7,7 @@ class User {
     this.body = body;
   }
   
-  async login(){                                    // async : await을 사용하기 위해
+  async login(){                           // async : await을 사용하기 위해
     const client = this.body;
     try{
       const {id, psword} = await UserStorage.getUsersInfo(client.id);      // promise를 반환하는 애한테 주는 옵션
